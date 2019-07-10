@@ -34,18 +34,22 @@
                     <h:commandButton action="#{userController.add()}" value="Add" class="form-control btn btn-dark" />
                 </div>
             </h:form>
-
-            <p:dataTable rendered="#{not empty userController.users }" value="#{userController.users}" var="ut" style="text-align: center" class="table">
-                <p:column headerText="Id" >
-                    #{ut.id}
-                </p:column>
-                <p:column headerText="Username">
-                    #{ut.username}
-                </p:column>
-                <p:column headerText="E-mail" >
-                    #{ut.email}
-                </p:column>
-            </p:dataTable>
+            <h:form>
+                <p:dataTable rendered="#{not empty userController.users }" value="#{userController.users}" var="ut" style="text-align: center" class="table">
+                    <p:column headerText="Id" >
+                        #{ut.id}
+                    </p:column>
+                    <p:column headerText="Username">
+                        #{ut.username}
+                    </p:column>
+                    <p:column headerText="E-mail" >
+                        #{ut.email}
+                    </p:column>
+                    <p:column headerText="Delete">
+                        <h:commandButton value="X" action="#{userController.delete(ut)}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
         </div>
         <p:growl></p:growl>
 

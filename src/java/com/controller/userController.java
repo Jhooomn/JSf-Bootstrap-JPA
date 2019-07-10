@@ -37,6 +37,10 @@ public class userController {
         user = new User();
         list();
     }
+    public void delete(User user){
+        us.eliminar(user);
+        list();
+    }
 
     public void list() {
         users = us.consultarTodo(User.class);
